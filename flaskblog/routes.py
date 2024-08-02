@@ -1,12 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy #alchemy is a ORM for .py
-from forms import RegistrationForm, LoginForm
-app = Flask (__name__)
-
-#setting a secret key to prevent modifying cookies, cross-siterequests and forgery attacks
-app.config['SECRET_KEY']='0346d7a54607eab673efb17f6eab633fc3c8cafcc2d53cec5ae80379947e0482'#secret key above generated from python using import secrets|secrets.token_hex(32)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///site.db'
-db=SQLAlchemy(app)
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post
 
 posts= [
     {
@@ -23,6 +18,7 @@ posts= [
     },
 ]
 @app.route("/")
+@app.route("/home")
 def home ():
     return render_template('home.html', posts=posts)
 
@@ -48,7 +44,3 @@ def login ():
         else:
             flash('Login Unsuccessful! Please check your username and password','danger')
     return render_template('login.html', title='Login', form=form)
-
-if __name__== '__main__':
-    app.run(debug=True)
-
