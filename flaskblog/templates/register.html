@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class ="content-section"> </div>    
+    <div class ="content-section">
         <form method="POST" action="">
             {{form.hidden_tag()}} <!--#hidden_tag adds CSRF token-->
             <fieldset class="form-group">
@@ -65,6 +65,7 @@
                 {{form.submit(class="btn btn-outline-info")}}
             </div>
         </form>
+    </div>    
         <div class="border-top pt-3">
             <small class="text-muted">
                 Already have an account? <a class="ml-2" href="{{url_for('login')}}"> Sign In </a>
