@@ -21,6 +21,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(100), unique=True, nullable=False)
     date_posted=db.Column(db.DateTime, nullable=False, default=datetime.now(timezone.utc))
+    content=db.Column(db.Text, nullable=False)
     title=db.Column(db.Text, unique=True, nullable=False)
     user_id=db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

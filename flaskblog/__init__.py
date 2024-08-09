@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy #alchemy is an ORM for .py
 from flask_bcrypt import Bcrypt

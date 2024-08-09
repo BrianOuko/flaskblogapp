@@ -35,8 +35,10 @@ True
 #on the terminal..
 >>> from flaskblog import app, db
 >>> app.app_context().push()
->>> from flaskblog.models import User
+>>> from flaskblog.models import User, Post
 >>> user=User.query.first()
+>>> post=Post.query.first()
+>>>db.create_all()
 >>> user
 User('briano',briano@hotmail.com'. 'default.jpg')
 >>> user.password
@@ -48,4 +50,4 @@ User('briano',briano@hotmail.com'. 'default.jpg')
 #on the terminal..
 >>> pip install flask-login
 
-#to restrict access to specific routes
+#to restrict access to specific routescdap
